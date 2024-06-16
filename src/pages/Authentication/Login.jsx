@@ -1,8 +1,9 @@
-
-import { TextField,Button } from "@mui/material";
+import { TextField, Button } from "@mui/material";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import * as Yup from "yup";
+import { loginUserAction } from "../Redux/Auth/auth.action";
 const validationSchema = {
   email: Yup.string().email("Invalid email").required("Email is required"),
   password: Yup.string()
@@ -12,9 +13,11 @@ const validationSchema = {
 const initialValues = { email: "", password: "" };
 const Login = () => {
   const [formValue, setFormValue] = useState();
+  const dispatch = useDispatch();
 
   const handleSubmit = (values) => {
     console.log("submit", values);
+    dispatch(loginUserAction({ data: values }));
   };
   return (
     <>
