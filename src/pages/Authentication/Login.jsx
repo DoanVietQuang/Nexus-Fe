@@ -4,21 +4,28 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 import { loginUserAction } from "../Redux/Auth/auth.action";
+import { useNavigate } from "react-router-dom";
+
 const validationSchema = {
   email: Yup.string().email("Invalid email").required("Email is required"),
   password: Yup.string()
     .min(6, "Password must be at least 6 characters")
     .required("Password is required"),
 };
+
 const initialValues = { email: "", password: "" };
+
 const Login = () => {
   const [formValue, setFormValue] = useState();
+
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (values) => {
     console.log("submit", values);
     dispatch(loginUserAction({ data: values }));
   };
+
   return (
     <>
       <Formik
@@ -70,6 +77,10 @@ const Login = () => {
           </Button>
         </Form>
       </Formik>
+      <div className="flex gap-2 items-center justify-center pt-5">
+        <p>If you don't have account ?</p>
+        <Button onClick={() => navigate("/register")}>Register</Button>
+      </div>
     </>
   );
 };

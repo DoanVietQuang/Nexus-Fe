@@ -10,6 +10,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { registerUserAction } from "../Redux/Auth/auth.action";
+import { useNavigate } from "react-router-dom";
 
 const validationSchema = {
   email: Yup.string().email("Invalid email").required("Email is required"),
@@ -26,16 +27,20 @@ const initialValues = {
 };
 const Register = () => {
   const [gender, setGender] = useState("");
+
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const handleSubmit = (values) => {
     values.gender = gender;
     console.log("submit", values);
-    dispatch(registerUserAction({ data: values }));
+    dispatch(registerUserAction({ data: values }),navigate);
   };
 
   const handleChange = (event) => {
     setGender(event.target.value);
   };
+
   return (
     <>
       <Formik
@@ -135,6 +140,10 @@ const Register = () => {
           </Button>
         </Form>
       </Formik>
+      <div className="flex gap-2 items-center justify-center pt-5">
+        <p>If you have already account ?</p>
+        <Button onClick={() => navigate("/login")}>Login</Button>
+      </div>
     </>
   );
 };

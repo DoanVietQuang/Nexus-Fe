@@ -10,6 +10,7 @@ const story = [1, 1, 1, 1];
 const posts = [1, 1, 1, 1, 1];
 const MiddlePart = () => {
   const handleOpenCreatePostModal = () => {};
+  
   return (
     <div className="px-20">
       <section className=" flex   items-center p-5 rounded-b-md">

@@ -6,6 +6,8 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import PostCard from "../../components/Post/PostCard";
 import UserReelCard from "../../components/Reels/UserReelCard";
+import ProfileModal from "./ProfileModal";
+import { useSelector } from "react-redux";
 
 const tabs = [
   { value: "post", name: "Post" },
@@ -17,6 +19,10 @@ const posts = [1, 1, 1, 1];
 const reels = [1, 1, 1, 1];
 const savedPost = [1, 1, 1, 1];
 const Profile = () => {
+  const { auth } = useSelector((store) => store);
+  const [open, setOpen] = React.useState(false);
+  const handleOpenProfileModal = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const [value, setValue] = React.useState("one");
 
   const handleChange = (event, newValue) => {
@@ -40,7 +46,11 @@ const Profile = () => {
           src="https://cdn.pixabay.com/photo/2023/10/18/22/47/eagle-8325205_1280.png"
         />
         {true ? (
-          <Button sx={{ borderRadius: "20px" }} variant="outlined">
+          <Button
+            onClick={handleOpenProfileModal}
+            sx={{ borderRadius: "20px" }}
+            variant="outlined"
+          >
             Edit Profile
           </Button>
         ) : (
@@ -51,8 +61,17 @@ const Profile = () => {
       </div>
       <div className="p-5">
         <div>
-          <h1 className="py-1 font-bold text-xl">Code with QR</h1>
-          <p>@codewithqr</p>
+          <h1 className="py-1 font-bold text-xl">
+            {" "}
+            {auth.user?.firstName + " " + auth.user?.lastName}
+          </h1>
+          <p>
+            {" "}
+            @
+            {auth.user?.firstName.toLowerCase() +
+              "_" +
+              auth.user?.lastName.toLowerCase()}
+          </p>
         </div>
         <div className="flex gap-3 items-center py-3">
           <span>41 post</span>
@@ -73,8 +92,8 @@ const Profile = () => {
             onChange={handleChange}
             aria-label="wrapped label tabs example"
           >
-            {tabs.map((item) => (
-              <Tab value={item.value} label={item.name} />
+            {tabs.map((item, index) => (
+              <Tab key={index} value={item.value} label={item.name} />
             ))}
           </Tabs>
         </Box>
@@ -108,6 +127,11 @@ const Profile = () => {
           )}
         </div>
       </section>
+      <div>
+        <section>
+          <ProfileModal open={open} handleClose={handleClose} />
+        </section>
+      </div>
     </Card>
   );
 };
