@@ -1,11 +1,11 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import { getProfileUserAction } from "./Redux/Auth/auth.action";
 import Authentication from "./pages/Authentication/Authentication";
 import HomePage from "./pages/HomePage/HomePage";
 import Message from "./pages/Message/Message";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getProfileUserAction } from "./pages/Redux/Auth/auth.action";
 
 function App() {
   const dispatch = useDispatch();

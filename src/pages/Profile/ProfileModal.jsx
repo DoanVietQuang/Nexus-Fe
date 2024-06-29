@@ -5,7 +5,7 @@ import Modal from "@mui/material/Modal";
 import { useFormik } from "formik";
 import * as React from "react";
 import { useDispatch } from "react-redux";
-import { updateProfileUserAction } from "../Redux/Auth/auth.action";
+import { updateProfileUserAction } from "../../Redux/Auth/auth.action";
 
 const style = {
   position: "absolute",

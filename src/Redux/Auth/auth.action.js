@@ -1,4 +1,4 @@
-import { API_BASE_URL, api } from "../../../Config/api";
+import { API_BASE_URL, api } from "../../Config/api";
 import {
   GET_PROFILE_FAILURE,
   GET_PROFILE_REQUEST,

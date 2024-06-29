@@ -1,13 +1,13 @@
 import { Avatar, Button, Card } from "@mui/material";
-import React from "react";
-import { useParams } from "react-router-dom";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
+import Tab from "@mui/material/Tab";
+import Tabs from "@mui/material/Tabs";
+import React from "react";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import PostCard from "../../components/Post/PostCard";
 import UserReelCard from "../../components/Reels/UserReelCard";
 import ProfileModal from "./ProfileModal";
-import { useSelector } from "react-redux";
 
 const tabs = [
   { value: "post", name: "Post" },

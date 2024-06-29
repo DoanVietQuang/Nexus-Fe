@@ -1,14 +1,14 @@
 import { Grid } from "@mui/material";
 import React, { useEffect } from "react";
-import Sidebar from "../../components/Sidebar/Sidebar";
-import { Route, Routes, useLocation } from "react-router-dom";
-import MiddlePart from "../../components/MiddlePart/MiddlePart";
-import Reels from "../../components/Reels/Reels";
-import CreateReelsForm from "../../components/Reels/CreateReelsForm";
-import Profile from "../Profile/Profile";
-import HomeRight from "../../components/HomeRight/HomeRight";
 import { useDispatch, useSelector } from "react-redux";
-import { getProfileUserAction } from "../Redux/Auth/auth.action";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { getProfileUserAction } from "../../Redux/Auth/auth.action";
+import HomeRight from "../../components/HomeRight/HomeRight";
+import MiddlePart from "../../components/MiddlePart/MiddlePart";
+import CreateReelsForm from "../../components/Reels/CreateReelsForm";
+import Reels from "../../components/Reels/Reels";
+import Sidebar from "../../components/Sidebar/Sidebar";
+import Profile from "../Profile/Profile";
 
 const HomePage = () => {
   const dispatch = useDispatch();

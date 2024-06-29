@@ -1,16 +1,16 @@
-import React, { useState } from "react";
 import {
-  TextField,
   Button,
-  RadioGroup,
   FormControlLabel,
   Radio,
+  RadioGroup,
+  TextField,
 } from "@mui/material";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import * as Yup from "yup";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { registerUserAction } from "../Redux/Auth/auth.action";
 import { useNavigate } from "react-router-dom";
+import * as Yup from "yup";
+import { registerUserAction } from "../../Redux/Auth/auth.action";
 
 const validationSchema = {
   email: Yup.string().email("Invalid email").required("Email is required"),
