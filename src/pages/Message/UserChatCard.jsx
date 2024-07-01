@@ -19,7 +19,7 @@ const UserChatCard = ({ chat }) => {
               bgcolor: "#191c29",
               color: "rgb(88,199,250)",
             }}
-            src="https://images.pexels.com/photos/15898869/pexels-photo-15898869/free-photo-of-chim-than-cay-ch-p-nh-d-ng-v-t-ch-p-nh-d-ng-v-t-hoang-da.png?auto=compress&cs=tinysrgb&w=300"
+            src={<Avatar/>}
           />
         }
         action={

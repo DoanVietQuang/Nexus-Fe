@@ -8,7 +8,7 @@ const ChatMessage = ({ item }) => {
   return (
     <div
       className={`flex ${
-        isReqUserMessage ? "justify-start" : "justify-end"
+        isReqUserMessage ? "justify-end" : "justify-start"
       } text-white `}
     >
       <div
